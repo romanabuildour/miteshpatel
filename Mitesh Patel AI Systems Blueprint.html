@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Systems Blueprint — Patel Heaters &amp; Control Pvt. Ltd.</title>
+<style>
+  :root {
+    --ink: #1a2332;
+    --ink-soft: #46556b;
+    --accent: #b34700;
+    --accent-soft: #fdf1e7;
+    --rule: #d8dee8;
+    --bg: #ffffff;
+    --panel: #f6f8fb;
+    --pain-bg: #fbf3ee;
+    --pain-border: #d9885a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.65;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+    font-size: 17px;
+  }
+  header { border-bottom: 3px solid var(--ink); padding-bottom: 24px; margin-bottom: 32px; }
+  .kicker {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin-bottom: 10px;
+  }
+  h1 { font-size: 34px; line-height: 1.2; margin-bottom: 6px; }
+  .subtitle { color: var(--ink-soft); font-size: 18px; font-style: italic; }
+  table.meta {
+    width: 100%; border-collapse: collapse; margin: 28px 0 8px;
+    font-family: "Segoe UI", Arial, sans-serif; font-size: 14.5px;
+  }
+  table.meta td { padding: 7px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  table.meta td:first-child { font-weight: 700; white-space: nowrap; width: 140px; color: var(--ink-soft); }
+  h2 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 22px; margin: 48px 0 16px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--rule);
+  }
+  h2 .num { color: var(--accent); margin-right: 8px; }
+  h3 { font-family: "Segoe UI", Arial, sans-serif; font-size: 17.5px; margin: 28px 0 8px; }
+  p { margin-bottom: 14px; }
+  ul, ol { margin: 0 0 16px 26px; }
+  li { margin-bottom: 8px; }
+  .pain {
+    background: var(--pain-bg); border-left: 4px solid var(--pain-border);
+    padding: 12px 16px; margin: 12px 0 20px; font-size: 16px;
+  }
+  .pain strong { color: var(--accent); }
+  .system {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 20px 24px; margin: 18px 0;
+  }
+  .system h3 { margin-top: 0; }
+  .system p { margin-bottom: 8px; font-size: 16px; }
+  .system p:last-child { margin-bottom: 0; }
+  .label {
+    font-family: "Segoe UI", Arial, sans-serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; color: var(--accent);
+  }
+  .phase {
+    border: 1px solid var(--rule); border-radius: 8px;
+    padding: 20px 24px; margin: 18px 0;
+  }
+  .phase h3 { margin-top: 0; }
+  .done {
+    background: var(--accent-soft); border-radius: 6px;
+    padding: 10px 14px; margin-top: 12px; font-size: 15.5px;
+  }
+  .done strong { color: var(--accent); }
+  blockquote {
+    border-left: 4px solid var(--accent); background: var(--accent-soft);
+    padding: 14px 18px; margin: 18px 0; font-size: 16px;
+  }
+  .footer-note {
+    margin-top: 56px; padding-top: 18px; border-top: 3px solid var(--ink);
+    font-style: italic; color: var(--ink-soft); font-size: 15px;
+  }
+  @media print {
+    body { padding: 0; font-size: 12.5pt; }
+    .system, .phase { break-inside: avoid; }
+    h2 { break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">BuildOur AI · Client Blueprint</div>
+  <h1>AI Systems Blueprint</h1>
+  <div class="subtitle">Patel Heaters &amp; Control Pvt. Ltd.</div>
+  <table class="meta">
+    <tr><td>Prepared for</td><td>Mitesh Patel, Director</td></tr>
+    <tr><td>Business</td><td>Industrial electrical heaters, RTD/thermocouples, control panels, ovens, blowers, sealing machines + electrical accessories trading — B2B, domestic &amp; export</td></tr>
+    <tr><td>Current stack</td><td>Odoo ERP (Community) + Tally (billing) + ChatGPT (partial) + WhatsApp/Email</td></tr>
+    <tr><td>Prepared by</td><td>BuildOur AI</td></tr>
+    <tr><td>Sources</td><td>Systems Brief (submitted 01.08.2026) + audit call of 06.08.2026 <em>(Zoom auto-transcript largely garbled on the Hindi discussion; legible portions covered onboarding logistics — a re-listen of the audio is recommended to recover the rest)</em></td></tr>
+  </table>
+</header>
+
+<h2>Executive Summary</h2>
+<p>Mitesh's brief describes a business that wins on repeat trust — roughly 70% regular customers, most re-ordering the same items — but runs on verbal follow-up: Mitesh personally present in every department, reminding people of tasks, digging out old specifications for repeat orders, and chasing payments. The stated vision is one window from inquiry to dispatch, where a customer, dealer, or supplier sees their own view and gets answers without a phone call into the factory.</p>
+<p>This blueprint recommends eight systems in three phases. Phase 1 attacks the two leaks Mitesh called out as daily and uncountable: repeat-order lookups that delay dispatch by 2–3 days, and quotations that wait on manual technical calculation. A data-foundation track runs alongside, because the brief is honest about the gap: today only 2% of BOMs, 0% of drawings, and 40% of stock live in Odoo — and every automation below depends on that data existing. The target is the system running before the pre-winter heater season.</p>
+
+<h2><span class="num">1.</span>Current State: How Work Happens Today, and Where It Hurts</h2>
+
+<h3>1.1 Inquiry and quoting</h3>
+<p>95% of inquiries arrive by email and WhatsApp; they're registered manually in Odoo. For repeat items, the team quotes from memory and confirms on WhatsApp or email. For new requirements, a product manager discusses specs, gets a drawing prepared, then quotes. Orders are noted in a register.</p>
+<div class="pain"><strong>Pain:</strong> For repeat orders — the bulk of the business — the team spends too much time checking old specifications and past drawings. This happens almost every week and delays dispatch by two to three days, sometimes costing the follow-up order from that customer. Quotation pricing is calculated by hand every time.</div>
+
+<h3>1.2 Order-to-production handover</h3>
+<p>Once approved, the order is planned into production and accounts is informed — all manually.</p>
+<div class="pain"><strong>Pain:</strong> "Taking too much time to take into process" — delivery delays start before production even begins. There is no system view of what stage an order is at, so answering a customer's status question means walking the floor.</div>
+
+<h3>1.3 Quality control and documentation</h3>
+<p>QC handles routine testing well, but when a customer requires detailed or advanced QC documentation, mistakes happen or a senior person must be physically present.</p>
+<div class="pain"><strong>Pain:</strong> Non-standard QC documentation is a recurring weekly failure point. QC report creation is on Mitesh's "never want to manually do again" list.</div>
+
+<h3>1.4 Support and information access</h3>
+<p>Support staff can't answer customers directly — they relay questions to other departments because the ERP doesn't hold the information (drawings, BOMs, process status) and training is thin.</p>
+<div class="pain"><strong>Pain:</strong> Every customer question becomes an internal relay race. This is why Mitesh pictures "1 window, 1 person or AI" answering inquiry-to-dispatch status.</div>
+
+<h3>1.5 Finance</h3>
+<p>Payment follow-up runs on reminders from Mitesh; purchase invoice entry is delayed.</p>
+<div class="pain"><strong>Pain:</strong> Daily leak. Purchase bill entry and payment follow-ups are both on the "never again" list.</div>
+
+<h3>1.6 People, reporting, and accountability</h3>
+<p>No reporting system exists; responsibilities aren't written down. Mitesh must be 100% present in every department, reminding people of tasks verbally. Six senior people (Mitesh, Preet, Manan, Shyam, Anand, Tannu) each carry two jobs — supervisors also handle customer follow-ups, which slip by a day or two when production gets busy. The marketing hire has no reporting structure at all.</p>
+<div class="pain"><strong>Pain:</strong> This is the reason Mitesh bought the program — his words: "people has no accountability and don't know their responsibilities... 100% has to be present in each and every department."</div>
+
+<h3>1.7 Data foundation (the honest picture)</h3>
+<p>In Odoo today: 100% billing and ledger, 95% quotes — but 20% customer database, 40% stock, 2% BOM, 0% drawings, 0% manufacturing process. Tally runs billing in parallel; Mitesh would consolidate to one system if old data transfers cleanly.</p>
+<div class="pain"><strong>Pain:</strong> The automations Mitesh wants (instant repeat quotes, stock visibility, status answers) read from exactly the data that isn't in the system yet.</div>
+
+<h2><span class="num">2.</span>Recommended AI Systems</h2>
+
+<div class="system">
+  <h3>System 1 — Repeat-Order Memory</h3>
+  <p><span class="label">What it does</span> — For any regular customer inquiry, instantly retrieves their full history — past specs, drawings, prices, delivery times — and drafts the confirmation. For unchanged repeat orders from regular customers, it can confirm on its own (a decision Mitesh explicitly delegated to AI in the brief).</p>
+  <p><span class="label">Solves</span> — The #1 leak — weekly spec-hunting that delays dispatch 2–3 days (§1.1). Delivers the six-month finish line: "repeat orders confirmed within minutes instead of waiting for my team to check old files."</p>
+</div>
+
+<div class="system">
+  <h3>System 2 — Auto-Quotation Engine</h3>
+  <p><span class="label">What it does</span> — Inquiry data is punched in once; the system runs the technical calculations, prices the job, and produces a quotation in the standard format with terms and conditions attached.</p>
+  <p><span class="label">Solves</span> — Painkiller #1, verbatim from the brief. Manual price calculation is on the "never again" list.</p>
+  <p><span class="label">Guardrail</span> — Pricing for new customers always goes to a human before it leaves the building — Mitesh's explicit sign-off rule. Standard pricing to regular customers can go out directly.</p>
+</div>
+
+<div class="system">
+  <h3>System 3 — One-Window Order Tracker &amp; Status Agent</h3>
+  <p><span class="label">What it does</span> — Every order carries its stage from inquiry to dispatch in the system. An AI agent answers status questions — from customers directly (Mitesh's comfort level allows this) and from support staff, ending the interdepartmental relay.</p>
+  <p><span class="label">Solves</span> — Painkiller #2 (§1.2, §1.4). Also sends proactive order-status updates, which the brief authorises AI to do autonomously.</p>
+</div>
+
+<div class="system">
+  <h3>System 4 — QC Report Generator</h3>
+  <p><span class="label">What it does</span> — QC formats are defined per product/parameter set; observed values are entered against them and the report compiles itself, including customer-specific advanced documentation requirements.</p>
+  <p><span class="label">Solves</span> — The weekly QC documentation failures (§1.3); "make QC reports" never again.</p>
+  <p><span class="label">Guardrail</span> — Dispatch clearance stays human. Calibration certificates stay internal unless approved for release.</p>
+</div>
+
+<div class="system">
+  <h3>System 5 — Payments &amp; Purchase-Bill Automation</h3>
+  <p><span class="label">What it does</span> — Automatic payment follow-up sequences on outstanding invoices with a collection dashboard; inward purchase invoices captured and entered without manual typing.</p>
+  <p><span class="label">Solves</span> — The daily finance leak (§1.5) and two "never again" items.</p>
+</div>
+
+<div class="system">
+  <h3>System 6 — Task, Reporting &amp; Accountability System</h3>
+  <p><span class="label">What it does</span> — Every task is assigned in the system with an owner and deadline; reminders go out automatically; daily/weekly reports reach the concerned manager without being asked; performance evaluation builds from completion data. Includes a simple reporting frame for the marketing role.</p>
+  <p><span class="label">Solves</span> — The core reason for the purchase (§1.6) — replaces verbal follow-up and Mitesh's everywhere-presence. Mistake protocol per the brief: anything uncertain is marked "needs review" and routed to staff, never confirmed to a customer.</p>
+</div>
+
+<div class="system">
+  <h3>System 7 — Dealer, Distributor &amp; Supplier Windows</h3>
+  <p><span class="label">What it does</span> — Access-controlled portals: dealers and distributors see stock, prices, and delivery estimates from anywhere; registered suppliers receive RFQs, fill in price and delivery, and orders assign based on the customer's expectations — the flow Mitesh described in his vision.</p>
+  <p><span class="label">Solves</span> — The "everyone calls the factory" problem at the network level, after the internal single window (System 3) is proven.</p>
+</div>
+
+<div class="system">
+  <h3>System 8 — Training Module Builder</h3>
+  <p><span class="label">What it does</span> — Converts each department's now-documented processes into standardized training modules with photos and video, so staff, suppliers, dealers, and distributors learn their window without verbal instruction.</p>
+  <p><span class="label">Solves</span> — Mitesh's 3-month training deadline, and protects the guardrail he set: AI helps staff work faster and trains them — it does not replace them.</p>
+</div>
+
+<h2><span class="num">3.</span>Implementation Roadmap</h2>
+<p>Mitesh can invest 6 hours/week personally, so the build leans on delegation: <strong>Tannu is the natural internal champion</strong> — she already owns Odoo CRM with a team of 8, and that team is the engine for the data-foundation track. Mitesh's hours go to approvals, guardrail decisions, and a weekly review. Odoo and Tally both stay running until one system has proven it can replace them with old data intact (Mitesh's stated condition).</p>
+<p>The "no verbal work communication" rule rolls out <strong>one department at a time</strong> — Sales/CRM first (Tannu's home turf), then Dispatch, then Accounts, then Production/QC — rather than everywhere at once, so a team that tends to "stick at one place" with new tools is never asked to change everything in one go.</p>
+
+<div class="phase">
+  <h3>Track 0 — Data Foundation <em>(starts immediately, runs through all phases)</em></h3>
+  <p>Get customer database, BOMs, drawings, stock, and process stages into the system — prioritised by what Phase 1 needs first: the top repeat customers' specs and drawings, then stock, then the rest. Without this track, every system below stalls.</p>
+</div>
+
+<div class="phase">
+  <h3>Phase 1 — Repeat Orders &amp; Quotations <em>(the daily bleeding)</em></h3>
+  <p>Systems <strong>1, 2, 3</strong>: repeat-order memory, auto-quotation, order tracking with the status agent.</p>
+  <div class="done"><strong>Done when:</strong> a regular customer's repeat order is confirmed in minutes; a new inquiry gets a calculated, formatted quote the same day with human approval where required; nobody walks the floor to answer "where is my order?"</div>
+</div>
+
+<div class="phase">
+  <h3>Phase 2 — Quality, Money &amp; Accountability</h3>
+  <p>Systems <strong>4, 5, 6</strong>: QC report generation, payment/purchase automation, task and reporting system.</p>
+  <div class="done"><strong>Done when:</strong> advanced QC documentation goes out without a senior person standing over it; payment follow-ups run without reminders from Mitesh; every department reports to its manager on time without being asked.</div>
+</div>
+
+<div class="phase">
+  <h3>Phase 3 — The Network &amp; the Season</h3>
+  <p>Systems <strong>7, 8</strong>: dealer/distributor/supplier windows, training modules — plus the customer-relationship layer from Painkiller #3 (marketing updates, birthday messages, regular customer touchpoints).</p>
+  <div class="done"><strong>Done when:</strong> the system is live and the team comfortable on it before the pre-winter order season — Mitesh's stated deadline.</div>
+</div>
+
+<h2><span class="num">4.</span>Guardrails (set by Mitesh, enforced by design)</h2>
+<ul>
+  <li><strong>AI may act alone:</strong> confirm repeat orders from regular customers, share standard pricing and specs, send order status updates, message customers directly.</li>
+  <li><strong>Always human sign-off:</strong> final technical drawing approval for custom control panels, pricing quotes for new customers, dispatch clearance for finished goods.</li>
+  <li><strong>Never shared by AI:</strong> customer-specific drawings, custom panel designs, special pricing given to regular clients; RTD/thermocouple calibration certificates stay internal unless approved.</li>
+  <li><strong>On uncertainty:</strong> the AI confirms nothing — it marks the order "needs review" and notifies office staff before any customer response.</li>
+  <li><strong>People:</strong> the system trains and accelerates staff, including senior technicians; it does not replace them.</li>
+</ul>
+
+<h2><span class="num">5.</span>Numbers to Confirm at the Next Call</h2>
+<p>The brief's volumes (≈1,200 leads and ≈900 quotes/orders per month, 70% repeat customers, sales cycle from 2 days to 2 months) point to a high-volume, fast-turn business — which is exactly why per-order manual work hurts. Three figures need confirming before they anchor any sizing decision, as the brief entries appear to be typos:</p>
+<ol>
+  <li><strong>Average order value</strong> (entered as "1000020000" — likely a ₹10,000–₹20,000 range).</li>
+  <li><strong>Quote-to-order conversion</strong> (entered as "750 out of 100").</li>
+  <li><strong>Total headcount</strong> (entered as ~13, but the team map lists closer to 75–80 people across production, QC, stores, and office, and the functional split sums to 78).</li>
+</ol>
+
+<h2><span class="num">6.</span>Dependencies &amp; Risks</h2>
+<ul>
+  <li><strong>Data debt is the biggest risk.</strong> Drawings 0%, BOM 2%, customer database 20%, stock 40% in Odoo. Every system above reads from this data; Track 0 is not optional and Phase 1 fails without it.</li>
+  <li><strong>WhatsApp Business API.</strong> Automated customer messaging requires an official WhatsApp Business number — inquiries must migrate off personal numbers of Mitesh and the managers.</li>
+  <li><strong>Odoo Community limits.</strong> Confirm the version, hosting, and which modules are actually live; manufacturing stages and external portals may need community add-ons or custom development.</li>
+  <li><strong>Tally/Odoo duplication.</strong> Billing runs in Tally, accounting in Odoo. Payment automation can only trust the ledger once the two are bridged or consolidated.</li>
+  <li><strong>Adoption.</strong> Mitesh flagged that staff "stick at one place" as technology changes. The counter-strategy is built into the phasing: each phase removes a chore the team hates (spec hunting, reminder calls, bill typing, QC paperwork), so the system is felt as working <em>for</em> them before the training modules lock it in.</li>
+</ul>
+
+<h2><span class="num">7.</span>Next Steps</h2>
+<ol>
+  <li><strong>Re-listen to the audit-call audio</strong> — the auto-transcript lost most of the Hindi discussion; any verbally agreed scope should be reconfirmed in writing.</li>
+  <li><strong>Confirm the three numbers</strong> above, plus the working go-live date ("before winter season" — is 1 October the target?).</li>
+  <li><strong>Kick off Track 0</strong> with Tannu's team: top repeat customers' specs and drawings into the system first.</li>
+  <li><strong>Collect 3–5 sample advanced QC reports</strong> from real customer orders — these become the templates for System 4.</li>
+  <li><strong>Agree the Phase 1 build plan</strong> — to contradict, add to, or accept as-is.</li>
+</ol>
+
+<div class="footer-note">
+  Every item in this document traces to the submitted Systems Brief. No figures have been added beyond those the client provided; unclear entries are flagged, not guessed.
+</div>
+
+</body>
+</html>
