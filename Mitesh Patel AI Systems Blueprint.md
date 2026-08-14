@@ -6,7 +6,7 @@
 | **Business** | Industrial electrical heaters, RTD/thermocouples, control panels, ovens, blowers, sealing machines + electrical accessories trading — B2B, domestic & export |
 | **Current stack** | Odoo ERP (Community) + Tally (billing) + ChatGPT (partial) + WhatsApp/Email |
 | **Prepared by** | BuildOur AI |
-| **Sources** | Systems Brief (submitted 01.08.2026). Audit-call findings to be folded in as Rev B once the call transcript is processed. |
+| **Sources** | Systems Brief (submitted 01.08.2026) + audit call of 06.08.2026 (Zoom auto-transcript largely garbled on the Hindi discussion; legible portions covered onboarding logistics — a re-listen of the audio is recommended to recover the rest) |
 
 ---
 
@@ -97,7 +97,9 @@ In Odoo today: 100% billing and ledger, 95% quotes — but 20% customer database
 
 ## 3. Implementation Roadmap
 
-Mitesh can invest 6 hours/week personally, so the build leans on delegation — Tannu's 8-person CRM team is the natural engine for the data-foundation track. Odoo and Tally both stay running until one system has proven it can replace them with old data intact (Mitesh's stated condition).
+Mitesh can invest 6 hours/week personally, so the build leans on delegation: **Tannu is the natural internal champion** — she already owns Odoo CRM with a team of 8, and that team is the engine for the data-foundation track. Mitesh's hours go to approvals, guardrail decisions, and a weekly review. Odoo and Tally both stay running until one system has proven it can replace them with old data intact (Mitesh's stated condition).
+
+The "no verbal work communication" rule rolls out **one department at a time** — Sales/CRM first (Tannu's home turf), then Dispatch, then Accounts, then Production/QC — rather than everywhere at once, so a team that tends to "stick at one place" with new tools is never asked to change everything in one go.
 
 ### Track 0 — Data Foundation (starts immediately, runs through all phases)
 Get customer database, BOMs, drawings, stock, and process stages into the system — prioritised by what Phase 1 needs first: the top ~repeat customers' specs and drawings, then stock, then the rest. Without this track, every system below stalls.
@@ -132,16 +134,27 @@ The brief's volumes (≈1,200 leads and ≈900 quotes/orders per month, 70% repe
 
 1. **Average order value** (entered as "1000020000" — likely a ₹10,000–₹20,000 range).
 2. **Quote-to-order conversion** (entered as "750 out of 100").
-3. **Total headcount** (entered as ~13, but the team map lists 60+ people across production, QC, stores, and office).
+3. **Total headcount** (entered as ~13, but the team map lists closer to 75–80 people across production, QC, stores, and office, and the functional split sums to 78).
 
 ---
 
-## 6. Next Steps
+## 6. Dependencies & Risks
 
-1. **Process the audit-call transcript** into this document as Rev B — current version is built from the Systems Brief alone.
-2. **Confirm the three numbers** above.
+- **Data debt is the biggest risk.** Drawings 0%, BOM 2%, customer database 20%, stock 40% in Odoo. Every system above reads from this data; Track 0 is not optional and Phase 1 fails without it.
+- **WhatsApp Business API.** Automated customer messaging requires an official WhatsApp Business number — inquiries must migrate off personal numbers of Mitesh and the managers.
+- **Odoo Community limits.** Confirm the version, hosting, and which modules are actually live; manufacturing stages and external portals may need community add-ons or custom development.
+- **Tally/Odoo duplication.** Billing runs in Tally, accounting in Odoo. Payment automation can only trust the ledger once the two are bridged or consolidated.
+- **Adoption.** Mitesh flagged that staff "stick at one place" as technology changes. The counter-strategy is built into the phasing: each phase removes a chore the team hates (spec hunting, reminder calls, bill typing, QC paperwork), so the system is felt as working *for* them before the training modules lock it in.
+
+---
+
+## 7. Next Steps
+
+1. **Re-listen to the audit-call audio** — the auto-transcript lost most of the Hindi discussion; any verbally agreed scope should be reconfirmed in writing.
+2. **Confirm the three numbers** above, plus the working go-live date ("before winter season" — is 1 October the target?).
 3. **Kick off Track 0** with Tannu's team: top repeat customers' specs and drawings into the system first.
-4. **Agree the Phase 1 build plan** — to contradict, add to, or accept as-is.
+4. **Collect 3–5 sample advanced QC reports** from real customer orders — these become the templates for System 4.
+5. **Agree the Phase 1 build plan** — to contradict, add to, or accept as-is.
 
 ---
 
